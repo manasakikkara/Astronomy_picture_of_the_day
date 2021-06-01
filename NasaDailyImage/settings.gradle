@@ -1,0 +1,2 @@
+rootProject.name = "NasaDailyImage"
+include ':app'
