@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.nasadailyimage.DailyImageViewModel
 import com.example.nasadailyimage.R
@@ -32,7 +33,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel = DailyImageViewModel(application)
+        var androidViewModelFactory = ViewModelProvider.AndroidViewModelFactory.getInstance(application)
+        viewModel = androidViewModelFactory.create(DailyImageViewModel::class.java)
         handleApiCall()
     }
 
